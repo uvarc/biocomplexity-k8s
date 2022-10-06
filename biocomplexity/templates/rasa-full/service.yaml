@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rasa-full-service
+  namespace: biocomplexity
+spec:
+  selector:
+    app: rasa-full
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 5055
