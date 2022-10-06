@@ -15,3 +15,18 @@ spec:
               serviceName: rasa-action-server-service
               servicePort: 8080
             path: /
+    - host: mrdd-va-rasa-action-server.uvadcos.io
+      http:
+        paths:
+          - backend:
+              serviceName: rasa-action-server-service
+              servicePort: 8080
+            path: /
+    - host: rsa-action-server.uvadcos.io
+      http:
+        paths:
+          - backend:
+              serviceName: rasa-action-server-service
+              servicePort: 8080
+            path: /
+
