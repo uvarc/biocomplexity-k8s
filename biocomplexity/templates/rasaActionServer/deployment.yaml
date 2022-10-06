@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasa-action-server-deployment
+  namespace: biocomplexity
+  labels:
+    app: rasa-action-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rasa-action-server
+  template:
+    metadata:
+      labels:
+        app: rasa-action-server
+    spec:
+      containers:
+      - name: rasa-action-server-container
+        image: ghcr.io/nssac/mrdd-va-rasa-action-chatbot:{{ .Values.version.rasaActionServer }}
+        ports:
+        - containerPort: 80
+        env:
+        - name: KEY
+          value: "value"
+        resources:
+          requests:
+            memory: "1024Mi"
+            cpu: "1000m"
+          limits:
+            memory: "2048Mi"
+            cpu: "1000m"
