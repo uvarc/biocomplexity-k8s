@@ -4,29 +4,29 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: rasa-action-server-nginx-ingress
+  name: mrdd-va-rasa-full-nginx-ingress
   namespace: biocomplexity
 spec:
   rules:
-    - host: rasa-action-server.pods.uvarc.io
+    - host: mrdd-va-rasa-full.pods.uvarc.io
       http:
         paths:
           - backend:
-              serviceName: rasa-action-server-service
+              serviceName: mrdd-va-rasa-full-service
               servicePort: 8080
             path: /
-    - host: mrdd-va-rasa-action-server.uvadcos.io
+    - host: rsafull.uvadcos.io
       http:
         paths:
           - backend:
-              serviceName: rasa-action-server-service
+              serviceName: mrdd-va-rasa-full-service
               servicePort: 8080
             path: /
-    - host: rsa-action-server.uvadcos.io
+    - host: mrdd-va-rasa.uvadcos.io
       http:
         paths:
           - backend:
-              serviceName: rasa-action-server-service
+              serviceName: mrdd-va-rasa-full-service
               servicePort: 8080
             path: /
 

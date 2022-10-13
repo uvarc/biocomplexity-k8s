@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rasa-full-deployment
+  name: mrdd-va-rasa-full-deployment
   namespace: biocomplexity
   labels:
-    app: rasa-full
+    app: mrdd-va-rasa-full
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rasa-full
+      app: mrdd-va-rasa-full
   template:
     metadata:
       labels:
-        app: rasa-full
+        app: mrdd-va-rasa-full
     spec:
       containers:
-      - name: rasa-full-container
+      - name: mrdd-va-rasa-full-container
         image: ghcr.io/nssac/mrdd-va-rasa-server-chatbot:{{ .Values.version.rasaFull }}
         command: ["rasa"]
         args: ["run", "--enable-api","--endpoints","endpoints.yml","--cors","*","-m","models","--debug"]
