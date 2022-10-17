@@ -5,7 +5,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.org/websocket-services: "covid-19-forecast-service"
   name: covid-19-forecast-nginx-ingress
-  namespace: uvarc-services
+  namespace: biocomplexity
 spec:
   rules:
     - host: bii-forecast.pods.uvarc.io

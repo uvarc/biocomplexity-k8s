@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: covid-19-forecast-deployment
-  namespace: uvarc-services
+  namespace: biocomplexity
   labels:
     app: covid-19-forecast
 spec:
