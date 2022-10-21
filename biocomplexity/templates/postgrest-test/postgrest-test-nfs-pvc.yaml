@@ -1,12 +1,12 @@
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: postgrest-test-nfs-pvc
-#   namespace: biocomplexity
-# spec:
-#   storageClassName: postgrest-test-sc
-#   accessModes:
-#     - ReadWriteMany  #must be the same as PersistentVolume
-#   resources:
-#     requests:
-#       storage: 10Gi
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgrest-test-nfs-pvc
+  namespace: biocomplexity
+spec:
+  storageClassName: postgrest-test-sc
+  accessModes:
+    - ReadWriteMany  #must be the same as PersistentVolume
+  resources:
+    requests:
+      storage: 10Gi
