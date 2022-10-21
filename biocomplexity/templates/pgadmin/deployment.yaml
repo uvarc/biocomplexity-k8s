@@ -32,15 +32,15 @@ spec:
           mountPath: /var/lib/pgadmin # mount inside of container
         - name: bii-pgadmin-nfs-volume-2
           mountPath: /pgadmin4/config_local.py # mount inside of container
-       env:
-       - name: PGADMIN_DEFAULT_EMAIL
-         value: "biocomplexity@virginia.edu"
-       - name: PGADMIN_DEFAULT_PASSWORD
-         value: "password"
-       - name: SECRET_KEY
-         value: "postgres"
-       - name: WTF_CSRF_ENABLED
-         value: "false"
+        env:
+        - name: PGADMIN_DEFAULT_EMAIL
+          value: "biocomplexity@virginia.edu"
+        - name: PGADMIN_DEFAULT_PASSWORD
+          value: "password"
+        - name: SECRET_KEY
+          value: "postgres"
+        - name: WTF_CSRF_ENABLED
+          value: "false"
         resources:
           requests:
             memory: "1024Mi"
