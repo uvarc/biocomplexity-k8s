@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dismolib-deployment
+  namespace: biocomplexity
+  labels:
+    app: dismolib
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dismolib
+  template:
+    metadata:
+      labels:
+        app: dismolib
+    spec:
+      containers:
+      - name: dismolib-container
+        image: ghcr.io/nssac/dismolib:latest
+        ports:
+        - containerPort: 3838
+       env:
+       - name: SHINY_LOG_STDERR
+         value: "1"
+       env:
+       - name: SHINY_LOG_STDOUT
+         value: "1"
+        resources:
+          requests:
+            memory: "2500Mi"
+            cpu: "0.5"
+          limits:
+            memory: "3000Mi"
+            cpu: "1"
+            
