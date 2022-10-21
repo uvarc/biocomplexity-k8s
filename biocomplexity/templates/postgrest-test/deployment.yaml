@@ -30,10 +30,8 @@ spec:
        env:
        - name: PGRST_DB_POOL_TIMEOUT
          value: "10"
-       env:
        - name: PGRST_LOG_LEVEL
          value: "info"
-       env:
        - name: PGRST_DB_POOL
          value: "10"
         resources:

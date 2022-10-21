@@ -35,13 +35,10 @@ spec:
        env:
        - name: PGADMIN_DEFAULT_EMAIL
          value: "biocomplexity@virginia.edu"
-       env:
        - name: PGADMIN_DEFAULT_PASSWORD
          value: "password"
-       env:
        - name: SECRET_KEY
          value: "postgres"
-       env:
        - name: WTF_CSRF_ENABLED
          value: "false"
         resources:

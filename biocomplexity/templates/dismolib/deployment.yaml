@@ -20,12 +20,11 @@ spec:
         image: ghcr.io/nssac/dismolib:latest
         ports:
         - containerPort: 3838
-       env:
-       - name: SHINY_LOG_STDERR
-         value: "1"
-       env:
-       - name: SHINY_LOG_STDOUT
-         value: "1"
+        env:
+        - name: SHINY_LOG_STDERR
+          value: "1"
+        - name: SHINY_LOG_STDOUT
+          value: "1"
         resources:
           requests:
             memory: "2500Mi"
