@@ -1,51 +1,51 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: bii-pgadmin-deployment
-  namespace: biocomplexity
-  labels:
-    app: bii-pgadmin
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: bii-pgadmin
-  template:
-    metadata:
-      labels:
-        app: bii-pgadmin
-    spec:
-      volumes:
-      - name: bii-pgadmin-nfs-volume
-        persistentVolumeClaim:
-          claimName: bii-pgadmin-nfs-pvc # name of pvc
-      - name: bii-pgadmin-nfs-volume-2
-        persistentVolumeClaim:
-          claimName: bii-pgadmin-nfs-pvc-2 # name of pvc
-      containers:
-      - name: bii-pgadmin-container
-        image: dpage/pgadmin4:6.1
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: bii-pgadmin-nfs-volume
-          mountPath: /var/lib/pgadmin # mount inside of container
-        - name: bii-pgadmin-nfs-volume-2
-          mountPath: /pgadmin4/config_local.py # mount inside of container
-        env:
-        - name: PGADMIN_DEFAULT_EMAIL
-          value: "biocomplexity@virginia.edu"
-        - name: PGADMIN_DEFAULT_PASSWORD
-          value: "password"
-        - name: SECRET_KEY
-          value: "postgres"
-        - name: WTF_CSRF_ENABLED
-          value: "false"
-        resources:
-          requests:
-            memory: "1024Mi"
-            cpu: "1000m"
-          limits:
-            memory: "2048Mi"
-            cpu: "2000m"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: bii-pgadmin-deployment
+#   namespace: biocomplexity
+#   labels:
+#     app: bii-pgadmin
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: bii-pgadmin
+#   template:
+#     metadata:
+#       labels:
+#         app: bii-pgadmin
+#     spec:
+#       volumes:
+#       - name: bii-pgadmin-nfs-volume
+#         persistentVolumeClaim:
+#           claimName: bii-pgadmin-nfs-pvc # name of pvc
+#       - name: bii-pgadmin-nfs-volume-2
+#         persistentVolumeClaim:
+#           claimName: bii-pgadmin-nfs-pvc-2 # name of pvc
+#       containers:
+#       - name: bii-pgadmin-container
+#         image: dpage/pgadmin4:6.1
+#         ports:
+#         - containerPort: 80
+#         volumeMounts:
+#         - name: bii-pgadmin-nfs-volume
+#           mountPath: /var/lib/pgadmin # mount inside of container
+#         - name: bii-pgadmin-nfs-volume-2
+#           mountPath: /pgadmin4/config_local.py # mount inside of container
+#         env:
+#         - name: PGADMIN_DEFAULT_EMAIL
+#           value: "biocomplexity@virginia.edu"
+#         - name: PGADMIN_DEFAULT_PASSWORD
+#           value: "password"
+#         - name: SECRET_KEY
+#           value: "postgres"
+#         - name: WTF_CSRF_ENABLED
+#           value: "false"
+#         resources:
+#           requests:
+#             memory: "1024Mi"
+#             cpu: "1000m"
+#           limits:
+#             memory: "2048Mi"
+#             cpu: "2000m"
             
