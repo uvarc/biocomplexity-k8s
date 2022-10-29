@@ -1,9 +1,44 @@
+# # apiVersion: networking.k8s.io/v1beta1
+# # kind: Ingress
+# # metadata:
+# #   annotations:
+# #     kubernetes.io/ingress.class: nginx
+# #     nginx.ingress.kubernetes.io/rewrite-target: /
+# #   name: mrdd-us-rasa-server-nginx-ingress
+# #   namespace: biocomplexity
+# # spec:
+# #   rules:
+# #     - host: mrdd-us-rasa-server.pods.uvarc.io
+# #       http:
+# #         paths:
+# #           - backend:
+# #               serviceName: mrdd-us-rasa-server-service
+# #               servicePort: 8080
+# #             path: /
+# #     - host: mrdd-us-rasa.uvadcos.io.uvadcos.io
+# #       http:
+# #         paths:
+# #           - backend:
+# #               serviceName: mrdd-us-rasa-server-service
+# #               servicePort: 8080
+# #             path: /
+
+
 # apiVersion: networking.k8s.io/v1beta1
 # kind: Ingress
 # metadata:
 #   annotations:
 #     kubernetes.io/ingress.class: nginx
 #     nginx.ingress.kubernetes.io/rewrite-target: /
+#     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer2
+#     #certmanager.k8s.io/cluster-issuer: letsencrypt-cluster-issuer2
+#     #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+#     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+#     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+#     acme.cert-manager.io/http01-edit-in-place: "true"
+#     #cert-manager.io/issue-temporary-certificate: "true"
+#     ingress.kubernetes.io/force-ssl-redirect: "false"
+    
 #   name: mrdd-us-rasa-server-nginx-ingress
 #   namespace: biocomplexity
 # spec:
@@ -15,40 +50,7 @@
 #               serviceName: mrdd-us-rasa-server-service
 #               servicePort: 8080
 #             path: /
-#     - host: mrdd-us-rasa.uvadcos.io.uvadcos.io
-#       http:
-#         paths:
-#           - backend:
-#               serviceName: mrdd-us-rasa-server-service
-#               servicePort: 8080
-#             path: /
-
-
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer2
-    #certmanager.k8s.io/cluster-issuer: letsencrypt-cluster-issuer2
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    cert-manager.io/issue-temporary-certificate: "true"
-    
-  name: mrdd-us-rasa-server-nginx-ingress
-  namespace: biocomplexity
-spec:
-  rules:
-    - host: mrdd-us-rasa-server.pods.uvarc.io
-      http:
-        paths:
-          - backend:
-              serviceName: mrdd-us-rasa-server-service
-              servicePort: 8080
-            path: /
-  tls:
-      - hosts:
-          - mrdd-us-rasa-server.pods.uvarc.io
-        secretName: mrdd-us-rasa-server-tls-ingress-secret
+#   tls:
+#       - hosts:
+#           - mrdd-us-rasa-server.pods.uvarc.io
+#         secretName: mrdd-us-rasa-server-tls-ingress-secret
