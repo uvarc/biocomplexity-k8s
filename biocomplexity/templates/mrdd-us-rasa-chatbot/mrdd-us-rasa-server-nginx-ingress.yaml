@@ -54,3 +54,31 @@
 #       - hosts:
 #           - mrdd-us-rasa-server.pods.uvarc.io
 #         secretName: mrdd-us-rasa-server-tls-ingress-secret
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ annotations:
+   cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer2
+   nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+   nginx.ingress.kubernetes.io/ssl-redirect: "true"
+   acme.cert-manager.io/http01-edit-in-place: "true"
+ name: mrdd-us-rasa-server-nginx-ingress
+ namespace: biocomplexity
+spec:
+ ingressClassName: nginx
+ rules:
+   - host: mrdd-us-rasa-server.pods.uvarc.io
+     http:
+       paths:
+         - backend:
+             service:
+               name: mrdd-us-rasa-server-service
+               port:
+                 number: 8080
+           path: /
+           pathType: ImplementationSpecific
+ tls:
+   - hosts:
+       - mrdd-us-rasa-server.pods.uvarc.io
+     secretName: mrdd-us-rasa-server-tls-ingress-secret
