@@ -15,5 +15,10 @@ spec:
               serviceName: stormshare-dev-service
               servicePort: 8080
             path: /
-
-
+    - host: stormshare-dev.uvadcos.io
+      http:
+        paths:
+          - backend:
+              serviceName: stormshare-dev-service
+              servicePort: 8080
+            path: /
