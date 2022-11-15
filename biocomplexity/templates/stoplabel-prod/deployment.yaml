@@ -27,9 +27,6 @@ spec:
         volumeMounts:
         - name: stoplabel-prod-nfs-volume
           mountPath: /var/www/html # mount inside of container
-        env:
-        - name:
-          value: ""
         resources:
           requests:
             memory: "2024Mi"

@@ -19,10 +19,7 @@ spec:
       - name: osrm-container
         image: osrm/osrm-backend
         ports:
-        - containerPort: 5000
-        env:
-        - name:
-          value: ""         
+        - containerPort: 5000    
         resources:
           requests:
             memory: "2024Mi"

@@ -20,11 +20,6 @@ spec:
         image: selenium/standalone-chrome:4
         ports:
         - containerPort: 80
-        env:
-        - name:
-          value: ""
-        - name:
-          value: ""
         resources:
           requests:
             memory: "2500Mi"
