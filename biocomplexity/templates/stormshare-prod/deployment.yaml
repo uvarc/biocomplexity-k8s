@@ -17,9 +17,32 @@ spec:
     spec:
       containers:
       - name: stormshare-prod-container
-        image: nginx
+        image: ghcr.io/nssac/nsf_crisp_2019_stormshare_backend:latest
         ports:
-        - containerPort: 80         
+        - containerPort: 80
+        env:
+#        - name:
+#          value: ""
+        - name: "root_path"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-prod-secrets
+              key: root_path
+        - name: "db_schema"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-prod-secrets
+              key: db_schema
+        - name: "db_connection"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-prod-secrets
+              key: db_connection
+        - name: "email_config"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-prod-secrets
+              key: email_config                 
         resources:
           requests:
             memory: "2024Mi"
