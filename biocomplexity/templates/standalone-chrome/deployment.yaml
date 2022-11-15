@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: standalone-chrome-deployment
+  namespace: biocomplexity
+  labels:
+    app: standalone-chrome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: standalone-chrome
+  template:
+    metadata:
+      labels:
+        app: standalone-chrome
+    spec:
+      containers:
+      - name: standalone-chrome-container
+        image: selenium/standalone-chrome:4
+        ports:
+        - containerPort: 80
+        env:
+        - name:
+          value: ""
+        - name:
+          value: ""
+        resources:
+          requests:
+            memory: "2500Mi"
+            cpu: "0.5"
+          limits:
+            memory: "3000Mi"
+            cpu: "1"
+            

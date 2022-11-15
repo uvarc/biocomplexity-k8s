@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: osrm-nginx-ingress
+  namespace: biocomplexity
+spec:
+  rules:
+    - host: osrm.pods.uvarc.io
+      http:
+        paths:
+          - backend:
+              serviceName: osrm-service
+              servicePort: 8080
+            path: /
+
+

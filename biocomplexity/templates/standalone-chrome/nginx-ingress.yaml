@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: standalone-chrome-nginx-ingress
+  namespace: biocomplexity
+spec:
+  rules:
+    - host: standalone-chrome.pods.uvarc.io
+      http:
+        paths:
+          - backend:
+              serviceName: standalone-chrome-service
+              servicePort: 8080
+            path: /

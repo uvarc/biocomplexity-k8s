@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stoplabel-prod-deployment
+  namespace: biocomplexity
+  labels:
+    app: stoplabel-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stoplabel-prod
+  template:
+    metadata:
+      labels:
+        app: stoplabel-prod
+    spec:
+      volumes:
+      - name: stoplabel-prod-nfs-volume
+        persistentVolumeClaim:
+          claimName: stoplabel-prod-nfs-pvc # name of pvc
+      containers:
+      - name: stoplabel-prod-container
+        image: ghcr.io/nssac/semantic_trajectory_stop_label:latest
+        ports:
+        - containerPort: 10149
+        volumeMounts:
+        - name: stoplabel-prod-nfs-volume
+          mountPath: /var/www/html # mount inside of container
+        env:
+        - name:
+          value: ""
+        resources:
+          requests:
+            memory: "2024Mi"
+            cpu: "50m"
+          limits:
+            memory: "3024Mi"
+            cpu: "100m"
+            
+

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stormshare-dev-deployment
+  namespace: biocomplexity
+  labels:
+    app: stormshare-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stormshare-dev
+  template:
+    metadata:
+      labels:
+        app: stormshare-dev
+    spec:
+      containers:
+      - name: stormshare-dev-container
+        image: ghcr.io/nssac/nsf_crisp_2019_stormshare_backend:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: email_config
+          value: "biocomplexity/stormshare-email_config"
+        - name: db_connection
+          value: "biocomplexity/stormshare-db_connection"
+        - name: db_schema
+          value: "biocomplexity/stormshare-dev_db_schema"
+        - name: root_path
+          value: "biocomplexity/stormshare-root_path"          
+        resources:
+          requests:
+            memory: "2024Mi"
+            cpu: "50m"
+          limits:
+            memory: "3024Mi"
+            cpu: "100m"
+            
+

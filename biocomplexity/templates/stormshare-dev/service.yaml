@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stormshare-dev-service
+  namespace: biocomplexity
+spec:
+  selector:
+    app: stormshare-dev
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
