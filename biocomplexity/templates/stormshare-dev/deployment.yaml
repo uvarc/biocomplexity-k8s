@@ -21,14 +21,28 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: email_config
-          value: "biocomplexity/stormshare-email_config"
-        - name: db_connection
-          value: "biocomplexity/stormshare-db_connection"
-        - name: db_schema
-          value: "biocomplexity/stormshare-dev_db_schema"
-        - name: root_path
-          value: "biocomplexity/stormshare-root_path"          
+#        - name:
+#          value: ""
+        - name: "root_path"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-dev-secrets
+              key: root_path
+        - name: "db_schema"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-dev-secrets
+              key: db_schema
+        - name: "db_connection"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-dev-secrets
+              key: db_connection
+        - name: "email_config"
+          valueFrom:
+            secretKeyRef:
+              name: stormshare-dev-secrets
+              key: email_config          
         resources:
           requests:
             memory: "2024Mi"
