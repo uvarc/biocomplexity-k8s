@@ -28,8 +28,8 @@ spec:
 #        - name: postgrest-test-nfs-volume
 #          mountPath: /etc/postgrest.conf # mount inside of container
         envFrom:
-          configMapRef:
-            name: postgrest-config-map
+          - configMapRef:
+              name: postgrest-config-map
         resources:
           requests:
             memory: "2024Mi"
