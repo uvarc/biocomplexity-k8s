@@ -15,25 +15,21 @@ spec:
       labels:
         app: postgrest-test
     spec:
-      volumes:
-      - name: postgrest-test-nfs-volume
-        persistentVolumeClaim:
-          claimName: postgrest-test-nfs-pvc # name of pvc
+#      volumes:
+#      - name: postgrest-test-nfs-volume
+#        persistentVolumeClaim:
+#          claimName: postgrest-test-nfs-pvc # name of pvc
       containers:
       - name: postgrest-test-container
         image: postgrest/postgrest
         ports:
         - containerPort: 3000
-        volumeMounts:
-        - name: postgrest-test-nfs-volume
-          mountPath: /etc/postgrest.conf # mount inside of container
-        env:
-        - name: PGRST_DB_POOL_TIMEOUT
-          value: "10"
-        - name: PGRST_LOG_LEVEL
-          value: "info"
-        - name: PGRST_DB_POOL
-          value: "10"
+#        volumeMounts:
+#        - name: postgrest-test-nfs-volume
+#          mountPath: /etc/postgrest.conf # mount inside of container
+        envFrom:
+          configMapRef:
+            name: postgrest-config-map
         resources:
           requests:
             memory: "2024Mi"
@@ -41,16 +37,3 @@ spec:
           limits:
             memory: "3024Mi"
             cpu: "100m"
-            
-
-# biocomplexity/postgrest-db_anon_role
-# Environment Name
-# PGRST_DB_ANON_ROLE
-
-# biocomplexity/postgrest-db_connection
-# Environment Name
-# PGRST_DB_URI
-
-# biocomplexity/postgrest-db_schema
-# Environment Name
-# PGRST_DB_SCHEMA
