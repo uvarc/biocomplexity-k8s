@@ -27,9 +27,24 @@ spec:
 #        volumeMounts:
 #        - name: postgrest-test-nfs-volume
 #          mountPath: /etc/postgrest.conf # mount inside of container
-        envFrom:
-          - configMapRef:
-              name: postgrest-config-map
+#        envFrom:
+#          - configMapRef:
+#              name: postgrest-config-map
+        env:
+        - name: HELLO
+          value: "world"
+        - name: PGRST_DB_POOL_TIMEOUT
+          value: "10"
+        - name: PGRST_LOG_LEVEL
+          value: "info"
+        - name: PGRST_DB_POOL
+          value: "10"
+        - name: PGRST_DB_URI
+          value: "postgres://authenticator:mysecretpassword@postgis1-s.bii.virginia.edu:5432/sdad"
+        - name: PGRST_DB_SCHEMA
+          value: "api"
+        - name: PGRST_ANON_ROLE
+          value: "web_anon"
         resources:
           requests:
             memory: "2024Mi"
