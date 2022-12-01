@@ -18,3 +18,13 @@ spec:
             name: dismolib-service
             port:
               number: 8080
+  - host: dismolib.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: dismolib-service
+            port:
+              number: 8080
