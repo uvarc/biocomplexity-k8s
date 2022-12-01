@@ -15,26 +15,24 @@ spec:
       labels:
         app: fox-bii-dsc-infomall
     spec:
-     volumes:
-     - name: fox-bii-dsc-infomall-nfs-volume
-       persistentVolumeClaim:
-         claimName: fox-bii-dsc-infomall-nfs-pvc # name of pvc
+      volumes:
+      - name: fox-bii-dsc-infomall-nfs-volume
+        persistentVolumeClaim:
+          claimName: fox-bii-dsc-infomall-nfs-pvc # name of pvc
       containers:
       - name: fox-bii-dsc-infomall-container
         image: ghcr.io/uvarc/nginx-auto:latest
         ports:
         - containerPort: 80
-       volumeMounts:
-       - name: fox-bii-dsc-infomall-nfs-volume
-         mountPath: /usr/share/nginx/html # mount inside of container
-       envFrom:
-         - configMapRef:
-             name: postgrest-config-map
+        volumeMounts:
+        - name: fox-bii-dsc-infomall-nfs-volume
+          mountPath: /usr/share/nginx/html # mount inside of container
         env:
         resources:
           requests:
-            memory: "2024Mi"
-            cpu: "50m"
+            memory: "1024Mi"
+            cpu: "1000m"
           limits:
-            memory: "3024Mi"
-            cpu: "100m"
+            memory: "2048Mi"
+            cpu: "2000m"
+            
