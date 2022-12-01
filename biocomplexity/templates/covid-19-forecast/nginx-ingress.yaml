@@ -22,3 +22,17 @@ spec:
               serviceName: covid-19-forecast-service
               servicePort: 8080
             path: /
+    - host: bii-forecast.uvadcos.io
+      http:
+        paths:
+          - backend:
+              serviceName: covid-19-forecast-service
+              servicePort: 8080
+            path: /
+    - host: covid19-forecast.uvadcos.io
+      http:
+        paths:
+          - backend:
+              serviceName: covid-19-forecast-service
+              servicePort: 8080
+            path: /  
