@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fox-bii-dsc-infomall-service
+  namespace: biocomplexity
+spec:
+  selector:
+    app: fox-bii-dsc-infomall
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fox-bii-dsc-infomall-deployment
+  namespace: biocomplexity
+  labels:
+    app: fox-bii-dsc-infomall
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fox-bii-dsc-infomall
+  template:
+    metadata:
+      labels:
+        app: fox-bii-dsc-infomall
+    spec:
+     volumes:
+     - name: fox-bii-dsc-infomall-nfs-volume
+       persistentVolumeClaim:
+         claimName: fox-bii-dsc-infomall-nfs-pvc # name of pvc
+      containers:
+      - name: fox-bii-dsc-infomall-container
+        image: ghcr.io/uvarc/nginx-auto:latest
+        ports:
+        - containerPort: 80
+       volumeMounts:
+       - name: fox-bii-dsc-infomall-nfs-volume
+         mountPath: /usr/share/nginx/html # mount inside of container
+       envFrom:
+         - configMapRef:
+             name: postgrest-config-map
+        env:
+        resources:
+          requests:
+            memory: "2024Mi"
+            cpu: "50m"
+          limits:
+            memory: "3024Mi"
+            cpu: "100m"
