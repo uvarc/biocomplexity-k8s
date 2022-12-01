@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -8,12 +8,14 @@ metadata:
   namespace: biocomplexity
 spec:
   rules:
-    - host: stormshare-prod.pods.uvarc.io
-      http:
-        paths:
-          - backend:
-              serviceName: stormshare-prod-service
-              servicePort: 8080
-            path: /
-
+  - host: stormshare-prod.pods.uvarc.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: stormshare-prod-service
+            port:
+              number: 8080
 

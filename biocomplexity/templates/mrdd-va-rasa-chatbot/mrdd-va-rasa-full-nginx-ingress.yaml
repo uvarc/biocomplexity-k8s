@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -8,25 +8,34 @@ metadata:
   namespace: biocomplexity
 spec:
   rules:
-    - host: mrdd-va-rasa-full.pods.uvarc.io
-      http:
-        paths:
-          - backend:
-              serviceName: mrdd-va-rasa-full-service
-              servicePort: 8080
-            path: /
-    - host: rsafull.uvadcos.io
-      http:
-        paths:
-          - backend:
-              serviceName: mrdd-va-rasa-full-service
-              servicePort: 8080
-            path: /
-    - host: mrdd-va-rasa.uvadcos.io
-      http:
-        paths:
-          - backend:
-              serviceName: mrdd-va-rasa-full-service
-              servicePort: 8080
-            path: /
-
+  - host: mrdd-va-rasa-full.pods.uvarc.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: consultr-service
+            port:
+              number: 8080
+  - host: rsafull.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: consultr-service
+            port:
+              number: 8080
+  - host: mrdd-va-rasa.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: consultr-service
+            port:
+              number: 8080
+              
