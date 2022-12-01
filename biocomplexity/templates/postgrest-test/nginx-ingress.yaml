@@ -18,3 +18,13 @@ spec:
             name: postgrest-test-service
             port:
               number: 8080
+  - host: postgrest-test.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: postgrest-test-service
+            port:
+              number: 8080      
