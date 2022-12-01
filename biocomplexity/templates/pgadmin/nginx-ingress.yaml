@@ -18,3 +18,13 @@ spec:
             name: bii-pgadmin-service
             port:
               number: 8080
+  - host: bii-pgadmin.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: bii-pgadmin-service
+            port:
+              number: 8080
