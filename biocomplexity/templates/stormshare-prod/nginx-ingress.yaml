@@ -18,4 +18,13 @@ spec:
             name: stormshare-prod-service
             port:
               number: 8080
-
+  - host: stormshare-prod.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: stormshare-prod-service
+            port:
+              number: 8080
