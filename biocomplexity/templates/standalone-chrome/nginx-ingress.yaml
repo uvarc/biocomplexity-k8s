@@ -18,3 +18,13 @@ spec:
             name: standalone-chrome-service
             port:
               number: 8080
+  - host: standalone-chrome.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: standalone-chrome-service
+            port:
+              number: 8080
