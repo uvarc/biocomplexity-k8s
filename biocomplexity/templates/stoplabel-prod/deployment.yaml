@@ -23,7 +23,7 @@ spec:
       - name: stoplabel-prod-container
         image: ghcr.io/nssac/semantic_trajectory_stop_label:latest
         ports:
-        - containerPort: 10149
+        - containerPort: 80
         volumeMounts:
         - name: stoplabel-prod-nfs-volume
           mountPath: /var/www/html # mount inside of container
