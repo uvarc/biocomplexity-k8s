@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: stormshare-dev-container
-        image: ghcr.io/nssac/nsf_crisp_2019_stormshare_backend:latest
+        image: ghcr.io/nssac/nsf_crisp_2019_stormshare_backend:{{ .Values.version.nsf_crisp_2019_stormshare_backend }}
         ports:
         - containerPort: 80
         env:
