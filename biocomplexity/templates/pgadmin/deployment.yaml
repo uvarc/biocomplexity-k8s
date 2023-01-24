@@ -24,7 +24,7 @@ spec:
           claimName: bii-pgadmin-pvc-2 # name of pvc
       containers:
       - name: bii-pgadmin-container
-        image: dpage/pgadmin4:6.1
+        image: ghcr.io/uvarc/pgadmin4:6.1
         ports:
         - containerPort: 80
         volumeMounts:
