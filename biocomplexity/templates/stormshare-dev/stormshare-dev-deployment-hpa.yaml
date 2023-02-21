@@ -1,41 +1,4 @@
-# apiVersion: autoscaling/v2
-# kind: HorizontalPodAutoscaler
-# metadata:
-#   name: stormshare-dev-deployment-hpa
-#   namespace: biocomplexity
-# spec:
-#   scaleTargetRef:
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     name: stormshare-dev-deployment
-#   minReplicas: 1
-#   maxReplicas: 10
-#   metrics:
-#   - type: Resource
-#     resource:
-#       name: cpu
-#       target:
-#         type: Utilization
-#         averageUtilization: 5
-#   behavior:
-#     scaleDown:
-#       stabilizationWindowSeconds: 300
-#       policies:
-#       - type: Percent
-#         value: 10
-#         periodSeconds: 15
-#     scaleUp:
-#       stabilizationWindowSeconds: 0
-#       policies:
-#       - type: Percent
-#         value: 100
-#         periodSeconds: 15 
-#       - type: Pods
-#         value: 10
-#         periodSeconds: 15
-#       selectPolicy: Max
-
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: stormshare-dev-deployment-hpa
@@ -53,8 +16,45 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 15
-      name: memory 
-      target:
-        type: Utilization 
-        averageUtilization: 15
+        averageUtilization: 4
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 15
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15 
+      - type: Pods
+        value: 10
+        periodSeconds: 15
+      selectPolicy: Max
+
+# apiVersion: autoscaling/v2beta2
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: stormshare-dev-deployment-hpa
+#   namespace: biocomplexity
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: stormshare-dev-deployment
+#   minReplicas: 1
+#   maxReplicas: 10
+#   metrics:
+#   - type: Resource
+#     resource:
+#       name: cpu
+#       target:
+#         type: Utilization
+#         averageUtilization: 15
+#       name: memory 
+#       target:
+#         type: Utilization 
+#         averageUtilization: 15
