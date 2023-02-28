@@ -1,41 +1,41 @@
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   annotations:
-#     kubernetes.io/ingress.class: nginx
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-#   name: mrdd-va-rasa-full-nginx-ingress
-#   namespace: biocomplexity
-# spec:
-#   rules:
-#   - host: mrdd-va-rasa-full.pods.uvarc.io
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: "/"
-#         backend:
-#           service:
-#             name: mrdd-va-rasa-full-service
-#             port:
-#               number: 8080
-#   - host: rsafull.uvadcos.io
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: "/"
-#         backend:
-#           service:
-#             name: mrdd-va-rasa-full-service
-#             port:
-#               number: 8080
-#   - host: mrdd-va-rasa.uvadcos.io
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: "/"
-#         backend:
-#           service:
-#             name: mrdd-va-rasa-full-service
-#             port:
-#               number: 8080
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: mrdd-va-rasa-full-nginx-ingress
+  namespace: biocomplexity
+spec:
+  rules:
+  - host: mrdd-va-rasa-full.pods.uvarc.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrdd-va-rasa-full-service
+            port:
+              number: 8080
+  - host: rsafull.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrdd-va-rasa-full-service
+            port:
+              number: 8080
+  - host: mrdd-va-rasa.uvadcos.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mrdd-va-rasa-full-service
+            port:
+              number: 8080
               
