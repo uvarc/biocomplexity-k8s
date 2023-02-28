@@ -15,7 +15,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: consultr-service
+            name: mrdd-va-rasa-full-service
             port:
               number: 8080
   - host: rsafull.uvadcos.io
@@ -25,7 +25,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: consultr-service
+            name: mrdd-va-rasa-full-service
             port:
               number: 8080
   - host: mrdd-va-rasa.uvadcos.io
@@ -35,7 +35,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: consultr-service
+            name: mrdd-va-rasa-full-service
             port:
               number: 8080
               
