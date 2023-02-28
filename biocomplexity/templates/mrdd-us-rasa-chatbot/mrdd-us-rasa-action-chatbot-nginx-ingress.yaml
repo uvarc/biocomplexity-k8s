@@ -18,7 +18,7 @@ spec:
             name: mrdd-us-rasa-action-chatbot-service
             port:
               number: 8080
-  - host: mrdd-us-rasa-action-server.uvadcos.io.uvadcos.io
+  - host: mrdd-us-rasa-action-server.uvadcos.io
     http:
       paths:
       - pathType: Prefix
