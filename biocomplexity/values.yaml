@@ -2,4 +2,4 @@ version:
   rasaActionServer: latest
   rasaFull: latest
   mrddActionServer: latest
-  nsf_crisp_2019_stormshare_backend: '1.9'
+  nsf_crisp_2019_stormshare_backend: '2.0'
