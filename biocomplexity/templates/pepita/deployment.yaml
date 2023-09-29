@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pepita-deployment
+  namespace: biocomplexity
+  labels:
+    app: pepita
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pepita
+  template:
+    metadata:
+      labels:
+        app: pepita
+    spec:
+      containers:
+      - name: pepita-container
+        image: ghcr.io/nssac/pepita:0.1.3
+        ports:
+        - containerPort: 8000
+        # env:
+        # - name: env1
+        #   value: "1"
+        # - name: env2
+        #   value: "1"
+        resources:
+          requests:
+            memory: "2500Mi"
+            cpu: "0.5"
+          limits:
+            memory: "3000Mi"
+            cpu: "1"
+            
