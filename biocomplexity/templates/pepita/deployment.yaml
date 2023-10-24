@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: pepita-container
-        image: ghcr.io/nssac/pepita:1
+        image: ghcr.io/nssac/pepita:1.2
         ports:
         - containerPort: 8000
         # env:
