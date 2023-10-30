@@ -4,7 +4,9 @@
 #   annotations:
 #     kubernetes.io/ingress.class: nginx
 #     nginx.ingress.kubernetes.io/rewrite-target: /
-#   name: pepita-nginx-ingress
+#     acme.cert-manager.io/http01-edit-in-place: "true"
+#     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+#   name: pepita-tls-nginx-ingress
 #   namespace: biocomplexity
 # spec:
 #   rules:
@@ -28,3 +30,7 @@
 #             name: pepita-service
 #             port:
 #               number: 8080
+#   tls:
+#       - hosts:
+#           - pepita.pods.uvarc.io
+#         secretName: pepita-nginx-tls-ingress-secret
