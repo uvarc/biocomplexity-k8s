@@ -19,3 +19,13 @@ spec:
             name: flux-forecasting-service
             port:
               number: 8080
+  - host: flux-forecasting.pods.uvarc.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: flux-forecasting-service
+            port:
+              number: 8080
