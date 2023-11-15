@@ -9,16 +9,16 @@ metadata:
   namespace: biocomplexity
 spec:
   rules:
-  # - host: bii-forecast.pods.uvarc.io
-  #   http:
-  #     paths:
-  #     - pathType: Prefix
-  #       path: "/"
-  #       backend:
-  #         service:
-  #           name: covid-19-forecast-service
-  #           port:
-  #             number: 8080
+  - host: bii-forecast.pods.uvarc.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: covid-19-forecast-service
+            port:
+              number: 8080
   - host: covid19-forecast.pods.uvarc.io
     http:
       paths:
