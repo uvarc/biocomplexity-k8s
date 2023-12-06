@@ -25,9 +25,9 @@ spec:
 #          value: ""
         resources:
           requests:
-            memory: "2500Mi"
+            memory: "4000Mi"
             cpu: "0.5"
           limits:
-            memory: "3000Mi"
+            memory: "8000Mi"
             cpu: "1"
             
