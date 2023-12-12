@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: flux-forecasting-dev-container
-        image: ghcr.io/nssac/flux-forecasting:0.2.10
+        image: ghcr.io/nssac/flux-forecasting:0.2.11
         ports:
         - containerPort: 8050
 #        env:
