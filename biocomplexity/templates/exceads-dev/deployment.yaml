@@ -30,7 +30,7 @@ spec:
         - name: exceads-dev-registry-secret
       containers:
       - name: exceads-frontend
-        image: ghcr.io/nssac/exceads-dev:0.2.2
+        image: ghcr.io/nssac/exceads-dev:0.2.3
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -66,6 +66,9 @@ spec:
         - name: exceads-db-secrets
           readOnly: true
           mountPath: "/run/exceads-db-secrets"
+        - name: exceads-secrets
+          readOnly: true
+          mountPath: "/run/exceads-secrets"
       - name: db
         image: mysql:8.0.20
         # ports:
