@@ -30,7 +30,7 @@ spec:
         - name: exceads-dev-registry-secret
       containers:
       - name: exceads-frontend
-        image: ghcr.io/nssac/exceads-dev:0.2.3
+        image: ghcr.io/nssac/exceads-dev:0.2.4
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
