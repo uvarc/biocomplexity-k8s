@@ -4,21 +4,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: pepita-dev_nginx-ingress
+    nginx.org/websocket-services: "pepita-dev-service"
+  name: pepita-dev-nginx-ingress
   namespace: biocomplexity
 spec:
   rules:
   - host: pepita-dev.pods.uvarc.io
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: pepita-dev-service
-            port:
-              number: 8080
-  - host: pepita-dev.uvadcos.io
     http:
       paths:
       - pathType: Prefix
