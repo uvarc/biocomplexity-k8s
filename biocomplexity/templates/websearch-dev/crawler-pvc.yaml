@@ -1,0 +1,12 @@
+# websearch/base/crawler-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: crawler-storage
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 5Gi                  # tune to your needs
+  storageClassName: standard        # or your default class
+

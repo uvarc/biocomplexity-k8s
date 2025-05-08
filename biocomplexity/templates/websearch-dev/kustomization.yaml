@@ -1,0 +1,13 @@
+# websearch/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: websearch
+resources:
+  - namespace.yaml
+  - crawler-pvc.yaml
+  - crawler-deploy.yaml
+  - crawler-svc.yaml
+  - flaresolverr-deploy.yaml
+  - flaresolverr-svc.yaml
+  - ingress.yaml
+

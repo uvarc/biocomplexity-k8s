@@ -1,0 +1,22 @@
+# websearch/app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: websearch
+  namespace: biocomplexity
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/uvarc/biocomplexity-k8s.git 
+    targetRevision: main
+    path: biocomplexity/templates/websearch-dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: websearch
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true        # auto-create the target namespace
+
