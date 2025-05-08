@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: websearch
+  name: websearch-dev
   namespace: biocomplexity
 spec:
   project: default
@@ -12,7 +12,7 @@ spec:
     path: biocomplexity/templates/websearch-dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: websearch
+    namespace: websearch-dev
   syncPolicy:
     automated:
       prune: true
