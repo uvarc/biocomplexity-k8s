@@ -17,4 +17,4 @@ spec:
           service:
             name: crawler
             port:
-              number: 3001
+              number: 8080
